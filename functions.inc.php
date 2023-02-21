@@ -41,7 +41,7 @@ function cidrotation_hookGet_config($engine) {
 			$ext->add($context, 's', '', new ext_noop('Released ${UNLOCK('.$mutex.')} mutex'));
 
 			$ext->add($context, 's', '', new ext_setvar('cidrotation_cid_list', $cids));
-			$ext->add($context, 's', '', new ext_setvar('cidrotation_cid', '${CUT(cidrotation_cid_list,-,${cidrotation_idx})}')); // CUT param is one-indexed
+			$ext->add($context, 's', '', new ext_setvar('cidrotation_cid', '${CUT(cidrotation_cid_list,-,$[${cidrotation_idx} % '.$cids_len.' + 1])}')); // CUT param is one-indexed
 
 			$ext->add($context, 's', '', new ext_setvar('CALLERID(num)', '${cidrotation_cid}'));
 			$ext->add($context, 's', '', new ext_setvar('CDR(outbound_cnum)', '${cidrotation_cid}'));
