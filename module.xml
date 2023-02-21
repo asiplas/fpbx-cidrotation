@@ -1,0 +1,27 @@
+
+<module>
+  <rawname>cidrotation</rawname>
+  <name>CallerID Rotation</name>
+  <version>16.0.1</version>
+  <publisher>Andrew Siplas</publisher>
+  <license>GPLv3</license>
+  <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+  <category>Applications</category>
+  <description>Implements CallerID Rotation from a system-wide round-robin list for configured extensions. This only applies to non-emergency non-intracompany trunk calls.</description>
+  <more-info>https://github.com/asiplas/fpbx-cidrotation</more-info>
+  <menuitems>
+    <cidrotation>CallerID Rotation</cidrotation>
+  </menuitems>
+  <changelog>*16.0.1* Initial release</changelog>
+  <supported>
+    <version>16.0</version>
+  </supported>
+  <database>
+    <table name="cidrotation_ext">
+      <field name="ext" type="string" length="15"/>
+    </table>
+    <table name="cidrotation_cid">
+      <field name="cid" type="string" length="15"/>
+    </table>
+  </database>
+</module>
