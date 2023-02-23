@@ -46,7 +46,7 @@
 							</div>
 							<div class="row">
 								<div class="col-md-12">
-									<span id="cid-list-help" class="help-block fpbx-help-block">Enter CallerID numbers to be rotated for outbound calling, one per line.</span>
+									<span id="cid-list-help" class="help-block fpbx-help-block">Enter CallerID numbers to be rotated for outbound calling, one per line.  May enter using format <strong>"John Smith" &lt;5085550199&gt;</strong> to provide name, otherwise simply provide number.</span>
 								</div>
 							</div>
 						</div>

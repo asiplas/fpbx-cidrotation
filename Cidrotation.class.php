@@ -29,7 +29,7 @@ class Cidrotation extends \FreePBX_Helpers implements \BMO {
 			$exts_db = $this->db->prepare('INSERT INTO cidrotation_ext(ext) VALUES(:ext)');
 			$added = array();
 			foreach($exts as $ext) {
-				$ext = preg_replace("/[^0-9]/", "", $ext);
+				$ext = preg_replace("/-/", "", $ext); // '-' is delimiter for dialplan CUT function
 				if (strlen($ext) < 1 || in_array($ext, $added)) {
 					continue;
 				}
@@ -37,14 +37,14 @@ class Cidrotation extends \FreePBX_Helpers implements \BMO {
 				$added[] = $ext;
 			}
 
-			$cids = explode("\r\n", trim($this->getReq('cid-list')));
+			$cids = explode("\r\n", trim($_POST['cid-list']));
 			$cids_db = $this->db->prepare('DELETE FROM cidrotation_cid');
 			$cids_db->execute();
 			$cids_db = $this->db->prepare('INSERT INTO cidrotation_cid(cid) VALUES(:cid)');
 			$added = array();
 			$id = 0;
 			foreach($cids as $cid) {
-				$cid = preg_replace("/[^0-9]/", "", $cid);
+				$cid = preg_replace("/-/", "", $cid); // '-' is delimiter for dialplan CUT function
 				if (strlen($cid) < 1 || in_array($cid, $added)) {
 					continue;
 				}
