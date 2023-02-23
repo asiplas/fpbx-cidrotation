@@ -12,9 +12,11 @@
   <menuitems>
     <cidrotation>CallerID Rotation</cidrotation>
   </menuitems>
-  <changelog>*16.0.1* Initial release</changelog>
-  <changelog>*16.0.2* Fix dialplan splice where allowlist module was skipping cid setting hook</changelog>
-  <changelog>*16.0.3* Allow for callerid name to be set for pool entries</changelog>
+  <changelog>
+    *16.0.1* Initial release
+    *16.0.2* Fix dialplan splice where allowlist module was skipping cid setting hook
+    *16.0.3* Allow for callerid name to be set for pool entries
+  </changelog>
   <supported>
     <version>16.0</version>
   </supported>
