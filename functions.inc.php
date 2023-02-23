@@ -43,9 +43,10 @@ function cidrotation_hookGet_config($engine) {
 			$ext->add($context, 's', '', new ext_setvar('cidrotation_cid_list', $cids));
 			$ext->add($context, 's', '', new ext_setvar('cidrotation_cid', '${CUT(cidrotation_cid_list,-,$[${cidrotation_idx} % '.$cids_len.' + 1])}')); // CUT param is one-indexed
 
-			$ext->add($context, 's', '', new ext_setvar('CALLERID(num)', '${cidrotation_cid}'));
-			$ext->add($context, 's', '', new ext_setvar('CDR(outbound_cnum)', '${cidrotation_cid}'));
-			$ext->add($context, 's', '', new ext_noop('Set CallerID number ${cidrotation_cid}'));
+			$ext->add($context, 's', '', new ext_setvar('CALLERID(all)', '${cidrotation_cid}'));
+			$ext->add($context, 's', '', new ext_setvar('CDR(outbound_cnam)', '${CALLERID(name)}'));
+			$ext->add($context, 's', '', new ext_setvar('CDR(outbound_cnum)', '${CALLERID(num)}'));
+			$ext->add($context, 's', '', new ext_noop('Set CallerID to ${CALLERID(all)}'));
 			$ext->add($context, 's', '', new ext_return());
 
 			$ext->splice('macro-dialout-trunk', 's', 'skipoutcid', new ext_gosub('1', 's', $context));

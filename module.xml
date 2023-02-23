@@ -2,7 +2,7 @@
 <module>
   <rawname>cidrotation</rawname>
   <name>CallerID Rotation</name>
-  <version>16.0.1</version>
+  <version>16.0.3</version>
   <publisher>Andrew Siplas</publisher>
   <license>GPLv3</license>
   <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,6 +13,8 @@
     <cidrotation>CallerID Rotation</cidrotation>
   </menuitems>
   <changelog>*16.0.1* Initial release</changelog>
+  <changelog>*16.0.2* Fix dialplan splice where allowlist module was skipping cid setting hook</changelog>
+  <changelog>*16.0.3* Allow for callerid name to be set for pool entries</changelog>
   <supported>
     <version>16.0</version>
   </supported>
@@ -21,7 +23,7 @@
       <field name="ext" type="string" length="15"/>
     </table>
     <table name="cidrotation_cid">
-      <field name="cid" type="string" length="15"/>
+      <field name="cid" type="string" length="64"/>
     </table>
   </database>
 </module>
