@@ -48,7 +48,7 @@ function cidrotation_hookGet_config($engine) {
 			$ext->add($context, 's', '', new ext_noop('Set CallerID number ${cidrotation_cid}'));
 			$ext->add($context, 's', '', new ext_return());
 
-			$ext->splice('macro-dialout-trunk', 's', 'gocall', new ext_gosub('1', 's', $context));
+			$ext->splice('macro-dialout-trunk', 's', 'skipoutcid', new ext_gosub('1', 's', $context));
 		break;
 	}
 }
